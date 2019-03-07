@@ -100,3 +100,10 @@ osdn：https://osdn.dl.osdn.net/bytom/70718/bytom-1.0.8-windows.zip
 ./bytomd.exe init --chain_id mainnet
 ./bytomd.exe node --simd.enable
 ```
+
+# Docker接入文档
+
+docker pull johnconstantine/bytom:latest
+
+docker run -d -p 9888:9888 -v ~/Library/Bytom:/root/.bytom johnconstantine/bytom:latest bytomd node --web.closed --auth.disable
+
