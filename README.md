@@ -16,21 +16,22 @@ CPU: 2核
 
 说明: 官方提供了安装说明，并且提供了一个自动安装脚本，但是经过实际测试结果表明，自动安装脚本并不适合国情，所以下面的内容将一步一步引导你安装部署，并接入由 EthFans 提供的节点状态信息统计网站
 
-### 3. 安装系统依赖库
+### 安装系统依赖库
 
 ```
 sudo apt-get update
-sudo apt-get install build-essential git unzip wget
+sudo apt-get install build-essential git unzip wget vim
 ```
 
-### 4. 下载并解压节点
+### 下载并解压节点
 
 ```
 wget https://mirrors.tuna.tsinghua.edu.cn/osdn/bytom/70718/bytom-1.0.8-linux.zip
 unzip bytom-1.0.8-linux.zip
+chmod +777 ./bytomd
 ```
 
-### 5. 运行节点
+### 启动并运行节点
 
 ```
 ./bytomd init --chain_id mainnet
