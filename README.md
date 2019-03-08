@@ -103,7 +103,12 @@ osdn：https://osdn.dl.osdn.net/bytom/70718/bytom-1.0.8-windows.zip
 
 # Docker接入文档
 
+```
 docker pull johnconstantine/bytom:latest
+```
 
+```
 docker run -d -p 9888:9888 -v ~/Library/Bytom:/root/.bytom johnconstantine/bytom:latest bytomd node --web.closed --auth.disable
+```
+>提示： 其中`~/Library/Bytom:/root/`换成本地的文件路径
 
