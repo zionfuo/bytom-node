@@ -100,15 +100,15 @@ https://mirrors.tuna.tsinghua.edu.cn/osdn/bytom/70718/bytom-1.0.8-linux.zip
 ```
 
 ### Docker接入文档
-
+#### 1 获取Docker镜像
 ```
 docker pull bytom/bytom:latest
 ```
+#### 2 初始化节点
 ```
-docker run -v ~/Library/Bytom:/root/.bytom bytom/bytom:latest bytomd init --chain_id mainnet
+docker run -v ~/Bytom:/root/.bytom bytom/bytom:latest bytomd init --chain_id mainnet
 ```
+#### 3 运行节点
 ```
-docker run -d -p 9888:9888 -v ~/Library/Bytom:/root/.bytom bytom/bytom:latest bytomd node --web.closed --auth.disable
+docker run -d -p 46657:46657 -v ~/Bytom:/root/.bytom bytom/bytom:latest bytomd node --web.closed --auth.disable
 ```
->提示： 其中`~/Library/Bytom:/root/`换成本地的文件路径
-
