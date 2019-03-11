@@ -1,6 +1,6 @@
 # 比原链（Bytom）先知节点
 
-## 系统要求
+### 系统要求
 
 我们建议选择主要的几家云主机平台的VPS服务，运行比原链节点对算力没有要求，但是请配置尽可能大的磁盘空间以适应区块链数据未来增长的需要。
 
@@ -19,18 +19,18 @@ CPU: 2核
 防火墙: 开启46657端口
 
 
-# Ubuntu接入文档
+### Ubuntu接入文档
 
-## 节点服务器部署
+#### 节点服务器部署
 
-### 安装系统依赖库
+##### 安装系统依赖库
 
 ```
 sudo apt-get update
 sudo apt-get install build-essential git unzip wget vim
 ```
 
-### 下载并解压节点
+##### 下载并解压节点
 
 ```
 wget https://mirrors.tuna.tsinghua.edu.cn/osdn/bytom/70718/bytom-1.0.8-linux.zip
@@ -38,62 +38,77 @@ unzip bytom-1.0.8-linux.zip
 chmod +777 ./bytomd
 ```
 
-### 启动并运行节点
+#### 启动并运行节点
 
 ```
 ./bytomd init --chain_id mainnet
 ./bytomd node --simd.enable
 ```
 
-# Windows接入文档
+### Windows接入文档
 
-### 安装系统依赖库
+#### 安装系统依赖库
 
-#### 安装MinGW
+##### 安装MinGW
 
-官方链接：https://nuwen.net/mingw.html
+官方链接：
+```
+https://nuwen.net/mingw.html
+```
+下载链接：
+```
+https://nuwen.net/files/mingw/mingw-16.1.exe
+```
+##### 安装Golang
 
-下载链接：https://nuwen.net/files/mingw/mingw-16.1.exe
+官方地址：
+```
+https://golang.org/
+```
+下载链接：
+```
+https://studygolang.com/dl/golang/go1.12.windows-amd64.msi
+```
+参考链接：
+```
+https://studygolang.com/dl
+```
+##### 安装Git
 
-#### 安装Golang
+官方地址：
+```
+https://git-scm.com/
+```
+下载链接：
+```
+https://git-scm.com/download/win
+```
+#### 下载并解压节点
 
-官方地址：https://golang.org/
+下载链接：
+```
+https://mirrors.tuna.tsinghua.edu.cn/osdn/bytom/70718/bytom-1.0.8-linux.zip
+```
 
-下载链接：https://studygolang.com/dl/golang/go1.12.windows-amd64.msi
+解压zip文件，并右键文件夹权限修改成可读写
 
-参考链接：https://studygolang.com/dl
-
-#### 安装Git
-
-官方地址：https://git-scm.com/
-
-下载链接：https://git-scm.com/download/win
-
-### 下载并解压节点
-
-国内源：https://mirrors.tuna.tsinghua.edu.cn/osdn/bytom/70718/bytom-1.0.8-linux.zip
-
-国外源：http://pumath.dl.osdn.jp/bytom/70718/bytom-1.0.8-windows.zip
-
-osdn：https://osdn.dl.osdn.net/bytom/70718/bytom-1.0.8-windows.zip
-
-右键文件夹权限修改成可读写
-
-### 启动并运行节点
+#### 启动并运行节点
 
 ```
 ./bytomd.exe init --chain_id mainnet
 ./bytomd.exe node --simd.enable
 ```
 
-# Docker接入文档
+### Docker接入文档
 
 ```
-docker pull johnconstantine/bytom:latest
+docker pull bytom/bytom:latest
 ```
-
 ```
-docker run -d -p 9888:9888 -v ~/Library/Bytom:/root/.bytom johnconstantine/bytom:latest bytomd node --web.closed --auth.disable
+docker run -v ~/Library/Bytom:/root/.bytom bytom/bytom:latest bytomd init --chain_id mainnet
+```
+```
+docker run -d -p 9888:9888 -v ~/Library/Bytom:/root/.bytom bytom/bytom:latest bytomd node --web.closed --auth.disable
 ```
 >提示： 其中`~/Library/Bytom:/root/`换成本地的文件路径
 
